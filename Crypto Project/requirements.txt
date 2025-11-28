@@ -1,0 +1,15 @@
+# Required libraries for Secure Authentication System
+# Install with: pip install -r requirements.txt
+
+# Password hashing - bcrypt is secure and slow by design
+bcrypt>=4.0.0
+
+# TOTP (Time-based One-Time Password) for 2FA
+pyotp>=2.9.0
+
+# JWT (JSON Web Token) for authentication tokens
+PyJWT>=2.8.0
+
+# Cryptographic library - provides AES, RSA, SHA-256, etc.
+cryptography>=41.0.0
+
