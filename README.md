@@ -113,11 +113,6 @@ This project implements all mandatory cryptographic components:
 - Session management with automatic expiration
 - Input validation and error handling
 
-## Documentation
-
-- [Architecture Documentation](docs/architecture.md) - System design and architecture
-- [Security Analysis](docs/security.md) - Security assumptions and threat model
-
 ## Team & Contributions
 
 - **Aidos Arsen Adil** — project lead, cryptographic implementation, interactive runner, and documentation.
@@ -152,3 +147,4 @@ This project is designed for educational purposes. All code includes detailed co
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
