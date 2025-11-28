@@ -77,47 +77,8 @@ This project implements all mandatory cryptographic components:
 6. **Password Hashing (bcrypt)**: Secure password storage with automatic salting
 7. **Secure Random Generation**: Cryptographically secure random number generation
 
-## Security Features
-
-- Passwords are never stored in plain text
-- TOTP-based 2FA for additional security layer
-- JWT tokens with HMAC-SHA256 signatures
-- Secure password reset tokens with expiration
-- Session management with automatic expiration
-- Input validation and error handling
-
-## Documentation
-
-- [Architecture Documentation](docs/architecture.md) - System design and architecture
-- [Security Analysis](docs/security.md) - Security assumptions and threat model
-
-## Requirements
-
-- Python 3.8+
-- bcrypt >= 4.0.0
-- pyotp >= 2.9.0
-- PyJWT >= 2.8.0
-- cryptography >= 41.0.0
-
-## Learning Resources
-
-This project is designed for educational purposes. All code includes detailed comments explaining:
-- What each function does
-- Why we do things a certain way
-- How cryptographic operations work
-- Security best practices
-
-## Important Notes
-
-- This is a **demonstration/learning project**
-- In production, you would:
-  - Use a real database (PostgreSQL, MySQL, etc.)
-  - Store secrets in environment variables
-  - Use HTTPS for all communications
-  - Implement rate limiting
-  - Add logging and monitoring
-  - Use proper session storage (Redis, etc.)
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
