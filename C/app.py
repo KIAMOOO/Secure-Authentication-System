@@ -517,7 +517,7 @@ def register():
         <h2>Multi-factor setup</h2>
         <p>Add this account to your TOTP app using the following secret:</p>
         <div class="code">{totp_secret}</div>
-        <p>Or use this provisioning URI:</p>
+        <p style="color: black;">Or use this provisioning URI:</p>
         <div class="code">{totp_uri}</div>
         """
     return render_template_string(

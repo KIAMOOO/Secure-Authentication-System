@@ -2,5 +2,17 @@
   "Aidos": {
     "password_hash": "JDJiJDEyJEJqcGZ6T0lIRnlCNmVRQTBqLm1mRWVOVUhoUEVlQ1BoMnZCem94OWNyOXJoRG03SkV0STNH",
     "totp_secret": "2Q36CXWJO3I542QKYO4W4LGBL5VNIVF5"
+  },
+  "Zombie": {
+    "password_hash": "JDJiJDEyJEV0OVJONUg3SlZUYTFYU0NvUGdWNHVhdEx1emVmdy5TZFEyNXZYR3lmUlFVeUFMS04ueUZP",
+    "totp_secret": "FUNMGTOABLEEVBGRH6ARYA3DVEQQNATG"
+  },
+  "zhazha@gmail.com": {
+    "password_hash": "JDJiJDEyJE9WT09COEJoSndXV1d4enFxRmxxOC5EMHIzcmJkRzFQYnRPeEtaQk1kMC5ONENuTkFBeTAy",
+    "totp_secret": "KCZE27ZXVJWDNPIVABTU35RHUO5OV3E7"
+  },
+  "Test1": {
+    "password_hash": "JDJiJDEyJGdJQmZpMDNhOWVvd1lNQWpCLmFBSk8wMHNERFh0SGQ1bDFXLnovSHRZUi42Y25IYVZsRE8y",
+    "totp_secret": "RSN7LTTLI3P25QLQHN4UKMEQWQYQQB3T"
   }
 }
