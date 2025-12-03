@@ -76,11 +76,10 @@ Open your browser at `http://127.0.0.1:5000/`.
 
 ## Team Member Contributions
 
-- Aidos — implementation of the Flask application, cryptographic components,
-  HTML/CSS styling, and documentation.
-
-If this is a group project, you can expand this section with one bullet
-per team member describing their responsibilities.
+- Adil  — backend logic, JWT/session handling, and password reset flow.
+- Arsen — cryptographic components (AES‑GCM, RSA signatures, Diffie–Hellman demo)
+  and security comments/docstrings.
+- Aidos — Flask routing, HTML/CSS styling, and project documentation (README, diagrams).
 
 ## License
 
