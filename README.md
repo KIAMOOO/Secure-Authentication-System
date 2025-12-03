@@ -1,150 +1,88 @@
-# Secure Authentication System
+# Secure Authentication Demo (Flask + Python)
 
 ## Description
 
-Secure Authentication System is an educational-grade platform that showcases a full authentication flow built on modern cryptographic primitives. The goal is to walk students and reviewers through how multi-factor authentication, JWT-based sessions, password hashing, and encryption/signature pipelines work together in a cohesive security architecture.
+This is a **simple educational web application** that demonstrates a secure
+authentication system with modern cryptographic primitives using Python 3
+and Flask. The goal is to satisfy university coursework requirements and
+to serve as self‑contained example code, **not** to be production ready.
 
 ## Features
 
-- **Multi-factor Authentication (2FA)**: TOTP-based two-factor authentication
-- **JWT Token Management**: Secure token generation and validation using HMAC-SHA256
-- **Password Security**: bcrypt password hashing with automatic salting
-- **Symmetric Encryption**: AES-256 encryption for data protection
-- **Asymmetric Encryption**: RSA encryption for secure communication
-- **Hash Functions**: SHA-256 for data integrity verification
-- **Digital Signatures**: RSA-based digital signatures for authentication
-- **Key Exchange**: Public key sharing for secure key exchange
-- **Password Reset**: Secure token-based password reset mechanism
-- **Session Management**: Secure session tracking with expiration
+- **Multi‑factor authentication**: password (hashed with **bcrypt**) + 6‑digit TOTP code (**pyotp**)
+- **JWT tokens** for API‑style authentication (**PyJWT**, `HS256` / HMAC‑SHA256)
+- **Session management** with signed cookies (Flask session)
+- **Password reset** using secure random tokens and RSA‑signed reset links
+- **Symmetric encryption** demo using AES‑GCM (`cryptography` library)
+- **Asymmetric RSA key pair** for digital signatures (RSA‑PSS + SHA‑256)
+- **Toy Diffie–Hellman key exchange** implemented **from scratch in Python**
+- All important cryptographic operations are documented with comments and docstrings
 
 ## Installation
 
-1. Install Python 3.8 or higher.
-2. (Optional) Create and activate a virtual environment.
-3. Install dependencies from the project root:
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. Run the health check to verify dependencies:
-   ```bash
-   python -c "import pyotp, jwt, bcrypt, cryptography"
-   ```
+Requirements: **Python 3.8+** and `pip`.
 
-## Usage
+1. Clone or download this repository.
+2. Install dependencies:
 
-Run the interactive console demo from the project root:
 ```bash
-python src/main.py
+pip install -r requirements.txt
 ```
 
-Or enter the `src` directory first:
+## Usage Examples
+
+### Start the development server
+
+On Windows PowerShell:
+
 ```bash
-cd src
-python main.py
+set FLASK_APP=app.py
+set FLASK_ENV=development   # optional, enables debug reload
+flask run
 ```
 
-### Usage Examples
+Open your browser at `http://127.0.0.1:5000/`.
 
-#### 1. Register a user with enforced 2FA
-```
-Select option 1 → provide username/password → store the displayed TOTP secret or scan the QR URI in an authenticator app.
-```
+### Register and configure TOTP
 
-#### 2. Perform a full MFA login
-```
-Select option 2 → enter the registered username/password → open your authenticator app to read the 6-digit TOTP code → paste the code to receive a signed JWT token.
-```
+1. Go to **Register** and create a new user.
+2. After registration, copy the **TOTP secret** into an authenticator app
+   (Google Authenticator, Microsoft Authenticator, Authy, etc.).
+3. The app will start generating 6‑digit TOTP codes for this account.
 
-#### 3. Verify and inspect a JWT session
-```
-Copy the token from the login step → select option 4 → paste the token to see the decoded payload, signature validation result, and expiration timestamp.
-```
+### Login with MFA
 
-#### 4. Run the scripted end‑to‑end demo
-```
-Select option 11 to automatically register a demo account, log in with generated TOTP, and exercise every cryptographic component (AES, RSA, SHA-256, signatures, key exchange, secure randomness).
-```
+1. Go to **Login**.
+2. Enter your **username** and **password**.
+3. Enter the current **6‑digit TOTP code** from the authenticator app.
+4. On success you are redirected to the **Profile** page which shows:
+   - An AES‑GCM encrypted message and its decrypted form.
+   - Result of an RSA signature verification.
+   - SHA‑256 hash of a toy Diffie–Hellman shared key.
 
-## Project Structure
+### Password reset flow
 
-```
-project-name/
-├── README.md              # Project overview
-├── LICENSE                # License file
-├── requirements.txt       # Python dependencies
-├── .gitignore            # Git ignore file
-├── src/                  # Source code
-│   ├── main.py           # Entry point
-│   ├── crypto/           # Cryptographic modules
-│   │   ├── __init__.py
-│   │   ├── auth_system.py
-│   │   ├── encryption.py
-│   │   ├── hashing.py
-│   │   └── signatures.py
-│   ├── utils/            # Utility functions
-│   │   ├── __init__.py
-│   │   ├── random_generator.py
-│   │   └── key_exchange.py
-│   └── tests/            # Unit tests
-│       └── __init__.py
-└── docs/                 # Documentation
-    ├── architecture.md   # System design
-    └── security.md       # Security analysis
-```
+1. Open **Reset Password** and submit your username.
+2. A **password‑reset URL** is generated (shown on the page for this demo).
+3. Follow the link, set a **new password**, and then log in again
+   with the new password + TOTP code.
 
-## Cryptographic Components
+## Code Documentation
 
-This project implements all mandatory cryptographic components:
+- `app.py` contains detailed comments and docstrings explaining:
+  - How each cryptographic primitive is used.
+  - Security assumptions and limitations of this demo.
+  - How sessions, JWTs, and TOTP verification work together.
 
-1. **Symmetric Encryption (AES-256)**: Fast and efficient encryption for large data
-2. **Asymmetric Encryption (RSA)**: Public/private key encryption for secure communication
-3. **Hash Functions (SHA-256)**: One-way hashing for data integrity
-4. **Digital Signatures (RSA)**: Cryptographic signatures for authentication
-5. **Key Exchange**: Secure public key sharing mechanism
-6. **Password Hashing (bcrypt)**: Secure password storage with automatic salting
-7. **Secure Random Generation**: Cryptographically secure random number generation
+## Team Member Contributions
 
-## Security Features
+- Aidos — implementation of the Flask application, cryptographic components,
+  HTML/CSS styling, and documentation.
 
-- Passwords are never stored in plain text
-- TOTP-based 2FA for additional security layer
-- JWT tokens with HMAC-SHA256 signatures
-- Secure password reset tokens with expiration
-- Session management with automatic expiration
-- Input validation and error handling
-
-## Team & Contributions
-
-- **Aidos Arsen Adil** — project lead, cryptographic implementation, interactive runner, and documentation.
-
-## Requirements
-
-- Python 3.8+
-- bcrypt >= 4.0.0
-- pyotp >= 2.9.0
-- PyJWT >= 2.8.0
-- cryptography >= 41.0.0
-
-## Learning Resources
-
-This project is designed for educational purposes. All code includes detailed comments explaining:
-- What each function does
-- Why we do things a certain way
-- How cryptographic operations work
-- Security best practices
-
-## Important Notes
-
-- This is a **demonstration/learning project**
-- In production, you would:
-  - Use a real database (PostgreSQL, MySQL, etc.)
-  - Store secrets in environment variables
-  - Use HTTPS for all communications
-  - Implement rate limiting
-  - Add logging and monitoring
-  - Use proper session storage (Redis, etc.)
+If this is a group project, you can expand this section with one bullet
+per team member describing their responsibilities.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
+This project is released under the **MIT License**. See the `LICENSE` file
+for full license text.
