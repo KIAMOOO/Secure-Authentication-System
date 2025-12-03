@@ -26,6 +26,7 @@ import time
 from dataclasses import dataclass
 import json
 from typing import Dict, Optional
+import urllib.parse
 
 import bcrypt
 import jwt
@@ -473,6 +474,7 @@ def register():
     message = None
     totp_uri = None
     totp_secret = None
+    qr_url = None
 
     if request.method == "POST":
         username = (request.form.get("username") or "").strip()
@@ -491,6 +493,9 @@ def register():
             totp_secret = pyotp.random_base32()
             totp = pyotp.TOTP(totp_secret)
             totp_uri = totp.provisioning_uri(name=username, issuer_name="SecureAuthDemo")
+            qr_url = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + urllib.parse.quote(
+                totp_uri
+            )
 
             USERS[username] = User(
                 username=username,
@@ -515,10 +520,18 @@ def register():
     if totp_secret:
         page_content += f"""
         <h2>Multi-factor setup</h2>
-        <p>Add this account to your TOTP app using the following secret:</p>
+        <p style="color: black;">Add this account to your TOTP app using the following secret:</p>
         <div class="code">{totp_secret}</div>
         <p style="color: black;">Or use this provisioning URI:</p>
         <div class="code">{totp_uri}</div>
+        <p style="margin-top: 1rem; color: #b91c1c; font-weight: 500;">
+          Scan this QR code with your 2FA authenticator app. If you lose this app and do not have a backup,
+          you will lose access to your account.
+        </p>
+        <div style="margin-top: 0.75rem; display: flex; justify-content: flex-start;">
+          <img src="{qr_url}" alt="TOTP QR code"
+               style="border-radius: 0.75rem; box-shadow: 0 10px 30px rgba(15, 23, 42, 0.35);" />
+        </div>
         """
     return render_template_string(
         BASE_TEMPLATE,
@@ -526,6 +539,7 @@ def register():
         message=message,
         totp_uri=totp_uri,
         totp_secret=totp_secret,
+        qr_url=qr_url,
         content=page_content,
     )
 

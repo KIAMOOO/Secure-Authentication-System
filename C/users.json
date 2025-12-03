@@ -14,5 +14,17 @@
   "Test1": {
     "password_hash": "JDJiJDEyJGdJQmZpMDNhOWVvd1lNQWpCLmFBSk8wMHNERFh0SGQ1bDFXLnovSHRZUi42Y25IYVZsRE8y",
     "totp_secret": "RSN7LTTLI3P25QLQHN4UKMEQWQYQQB3T"
+  },
+  "Kakashi": {
+    "password_hash": "JDJiJDEyJFBMOGc3THM5RENISkZ4L1JjQ3p6VWVkb2RabXVzdHBXUFJLTkZwa2JwUVhrQy9DWFU5MmhH",
+    "totp_secret": "CTG6TTZ4JBC5DV6VC577H4A4FTT4XW7X"
+  },
+  "Naruto": {
+    "password_hash": "JDJiJDEyJE5xamFlVVRPM0x0TW5JLkdNeHd0YWVFc1lPdGxXb1lJL1R0ZkdGYmhvMGZuY1pFLnh1Uk1l",
+    "totp_secret": "CSXLXMTZZPLMMXVQQ72VIE2JRZN7FFVR"
+  },
+  "Sakura": {
+    "password_hash": "JDJiJDEyJGhId2Q1TUg3M1VmSThZRFBuRmNIQ2U1MXdXNFNiMzdFNDVLa21Fc2FZTGVzMkFvbFZTbThX",
+    "totp_secret": "7CVTPC563MSHHCX6SYEBB7ASSRBYR3DN"
   }
 }
