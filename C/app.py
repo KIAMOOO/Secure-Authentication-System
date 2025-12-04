@@ -453,6 +453,7 @@ BASE_TEMPLATE = """
         margin-bottom: 0.5rem;
         color: #111827;
       }
+      
       a {
         color: #2563eb;
         text-decoration: none;
@@ -462,14 +463,22 @@ BASE_TEMPLATE = """
         text-decoration: underline;
       }
       form { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1rem; }
-      label { font-size: 0.9rem; color: #374151; }
+      label { 
+        font-size: 0.9rem; 
+        color: #374151;
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+      }
       input {
+        width: 100%;
+        box-sizing: border-box;
         padding: 0.55rem 0.8rem;
         border-radius: 0.55rem;
         border: 1px solid #d1d5db;
-        background: #f9fafb;
-        color: #0f172a;          /* ensure text is clearly visible */
-        caret-color: #2563eb;    /* blue text cursor for visibility */
+        background: #ffffff;
+        color: #6b7280;          
+        caret-color: #2563eb;    
         font-size: 0.95rem;
         outline: none;
         transition: border-color 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
@@ -515,10 +524,15 @@ BASE_TEMPLATE = """
         background: #eff6ff;
         border: 1px solid transparent;
       }
+      
+
+
+      
       .nav a:hover {
         background: #dbeafe;
         border-color: #bfdbfe;
       }
+    
       .flash {
         margin-top: 1rem;
         padding: 0.8rem 1rem;
@@ -648,13 +662,14 @@ def register():
     page_content = """
         <form method="post">
           <label>Username
-            <input type="text" name="username" required minlength="3" maxlength="32">
+            <input type="text" name="username" required minlength="3" maxlength="32" placeholder="e.g. Kakashi">
           </label>
+          
           <label>Email
             <input type="email" name="email" required placeholder="your.email@example.com">
           </label>
           <label>Password
-            <input type="password" name="password" required minlength="6">
+            <input type="password" name="password" required minlength="6" placeholder="Min. 6 characters">
           </label>
           <button type="submit">Register</button>
         </form>
@@ -722,10 +737,10 @@ def login():
     page_content = """
         <form method="post">
           <label>Username
-            <input type="text" name="username" required>
+            <input type="text" name="username" required placeholder="Enter your username">
           </label>
           <label>Password
-            <input type="password" name="password" required>
+            <input type="password" name="password" required placeholder="Enter your password">
           </label>
           <label>TOTP Code
             <input type="text" name="totp" required placeholder="123456">
@@ -881,7 +896,7 @@ def request_reset():
     page_content = """
         <form method="post">
           <label>Username
-            <input type="text" name="username" required>
+            <input type="text" name="username" required placeholder="Enter your username">
           </label>
           <button type="submit">Send reset link</button>
         </form>

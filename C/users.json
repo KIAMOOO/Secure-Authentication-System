@@ -53,5 +53,10 @@
     "password_hash": "JDJiJDEyJE1FbElsZTlRSk9CTi5ZSlhQcFc3eHVtN2FqVGVVNHpOUnpaNWpkYmoxSEdsRHdjU2lCZS9L",
     "totp_secret": "WU5YWHTFXVBHHQ42A6RDE6YZIALIXZB6",
     "email": "220107145@stu.sdu.edu.kz"
+  },
+  "Saske": {
+    "password_hash": "JDJiJDEyJE1OdWtTbjBkdmU2TTRlS1lvYjQ2US5IVkpiV2RJYzFldXk0eXViTTBHSGVtWElWaWM3STBt",
+    "totp_secret": "EO3RLHESUJ7HUO2FYLKZXTLW65EAASOQ",
+    "email": "arsen801777@gmail.com"
   }
 }
