@@ -25,9 +25,11 @@ Requirements: **Python 3.8+** and **`pip`**.
 1. Clone or download this repository.
 2. Install dependencies:
 
+```
 pip install -r requirements.txt
+```
 
-text
+
 
 ---
 
@@ -35,19 +37,21 @@ text
 
 **On Windows PowerShell:**
 
+```
 set FLASK_APP=app.py
 set FLASK_ENV=development # optional, enables debug reload
 flask run
+```
 
-text
 
 **On Linux/macOS:**
 
+```
 export FLASK_APP=app.py
 export FLASK_ENV=development # optional
 flask run
+```
 
-text
 
 Open your browser at [**http://127.0.0.1:5000/**](http://127.0.0.1:5000/).
 
@@ -89,13 +93,14 @@ Open your browser at [**http://127.0.0.1:5000/**](http://127.0.0.1:5000/).
 The application can send real **password‑reset emails** using any SMTP server (Mailjet, Gmail, Outlook, etc.).  
 Configure it via **environment variables** before running the app:
 
+```
 export SMTP_SERVER="smtp.example.com"
 export SMTP_PORT="587"
 export SMTP_USERNAME="your-smtp-username-or-api-key"
 export SMTP_PASSWORD="your-smtp-password-or-secret"
 export FROM_EMAIL="sender@yourdomain.com"
+ ```
 
-text
 
 **Important notes:**
 
@@ -104,12 +109,6 @@ text
 - If any of these variables are missing or invalid, **email sending is disabled** and the reset link is
   displayed on the **page** and in the **console**, so the demo remains fully usable.
 
-For **step‑by‑step SMTP examples** (Mailjet, Gmail, Outlook) see:
-
-- `SIMPLE_SMTP_SETUP.md` – basic SMTP setup.
-- `QUICK_EMAIL_SETUP.md` / `EMAIL_SETUP.md` – quick start instructions and troubleshooting tips.
-
----
 
 ## Code structure
 
@@ -136,4 +135,5 @@ For **step‑by‑step SMTP examples** (Mailjet, Gmail, Outlook) see:
 
 This project is released under the **MIT License**.  
 See the **`LICENSE`** file for the full license text.
+
 
