@@ -477,11 +477,15 @@ BASE_TEMPLATE = """
         border-radius: 0.55rem;
         border: 1px solid #d1d5db;
         background: #ffffff;
-        color: #6b7280;          
+        color: #0f172a;          
         caret-color: #2563eb;    
         font-size: 0.95rem;
         outline: none;
         transition: border-color 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+      }
+      input::placeholder {
+        color: #6b7280;          
+        opacity: 1;
       }
       input:focus {
         border-color: #2563eb;
