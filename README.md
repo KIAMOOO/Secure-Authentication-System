@@ -622,9 +622,9 @@ The Secure Authentication System follows a **client-server architecture** with a
 
 This project was developed by a team of three members:
 
-- **Aidos** — Cryptographic components (AES-GCM, RSA-OAEP, RSA-PSS, SHA-256), secure random generation, key management, error handling, password reset with SMTP email.
+- **Aidos** — Cryptographic components (AES-GCM, RSA-OAEP, RSA-PSS, SHA-256), secure random generation, key management, error handling, and unit tests.
 - **Arsen** — Diffie-Hellman implementation from scratch, bcrypt password hashing, input validation, threat model analysis, architecture documentation, JWT tokens, and session management.
-- **Adil** — Flask application, user registration/login, TOTP integration, unit tests, HTML/CSS styling, user guide, and integration tests.
+- **Adil** — Flask application, user registration/login, TOTP integration, password reset with SMTP email, HTML/CSS styling, user guide, and integration tests.
 
 ---
 
@@ -632,4 +632,3 @@ This project was developed by a team of three members:
 
 This project is released under the **MIT License**.
 See the **`LICENSE`** file for the full license text.
-
