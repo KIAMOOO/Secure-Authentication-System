@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import base64
+import io
 import html
 import os
 import secrets
@@ -8,10 +9,10 @@ import time
 from dataclasses import dataclass
 import json
 from typing import Dict, Optional, Tuple
-import urllib.parse
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+import qrcode
 
 import bcrypt
 import jwt
@@ -841,15 +842,17 @@ def register():
                     pw_hash = hash_password(password)
 
                     # Generate TOTP secret for 2FA (two-factor authentication)
-                    # This is what the user will add to their authenticator app
                     totp_secret = pyotp.random_base32()
                     totp = pyotp.TOTP(totp_secret)
-                    # Create a URI that authenticator apps can understand
                     totp_uri = totp.provisioning_uri(name=username, issuer_name="SecureAuthDemo")
-                    # Generate QR code URL so user can scan it
-                    qr_url = "https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=" + urllib.parse.quote(
-                        totp_uri
-                    )
+                    # Generate QR code locally as base64 data URI
+                    qr = qrcode.QRCode(version=1, box_size=10, border=4)
+                    qr.add_data(totp_uri)
+                    qr.make(fit=True)
+                    img = qr.make_image(fill_color="black", back_color="white")
+                    buf = io.BytesIO()
+                    img.save(buf, format="PNG")
+                    qr_url = f"data:image/png;base64,{base64.b64encode(buf.getvalue()).decode()}"
 
                     USERS[username] = User(
                         username=username,

@@ -63,5 +63,10 @@
     "password_hash": "JDJiJDEyJG5MOC5EOGVabjVPbGNjaVR3YmRmcHVkeG1mdGNhZ3MwYXFTRTlJU3VTaENUbFZxaWtFdzVX",
     "totp_secret": "L2KQJXHE7525PVXEPL5NC76FUABGMGYL",
     "email": "adil090704@gmail.com"
+  },
+  "heloman": {
+    "password_hash": "JDJiJDEyJERSOHR0SHZTTi85aFRPTzRRVEZ0ai5Ia3pOSmlRTWRuellHMUhxbU5nUkthREs2WTdYOGlt",
+    "totp_secret": "A7DDXBM3ZXJBIWCABQKSJDELKZP6OAZV",
+    "email": "heloman@gmail.com"
   }
 }
