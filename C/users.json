@@ -68,5 +68,15 @@
     "password_hash": "JDJiJDEyJERSOHR0SHZTTi85aFRPTzRRVEZ0ai5Ia3pOSmlRTWRuellHMUhxbU5nUkthREs2WTdYOGlt",
     "totp_secret": "A7DDXBM3ZXJBIWCABQKSJDELKZP6OAZV",
     "email": "heloman@gmail.com"
+  },
+  "Saske2": {
+    "password_hash": "JDJiJDEyJHZtRWdWSGJhT0xDTVExcGgxQjh3Lk80VVdzcVFBOXVyMG51TjIvd3RMYjM5cUw1WEYvUUFh",
+    "totp_secret": "NOL5DEM4OB3BA6DC76PNZTCVTMSZJUYK",
+    "email": "220107049@stu.sdu.edu.kz"
+  },
+  "AWDawdawd": {
+    "password_hash": "JDJiJDEyJFV0RUh6bWI5WGZ0VGZxeUVNTXB5Y3V5QTBJaUtjMGgwMllOTXVlS2N6NHRBRGdTaTJFUVoy",
+    "totp_secret": "Y3E4VIDWBOGY3S5DYNT5ARSFVIDKV674",
+    "email": "arsedn801777@gmail.com"
   }
 }
